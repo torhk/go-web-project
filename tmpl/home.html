@@ -1,0 +1,12 @@
+{{define "home.html"}}
+{{template "header" .}}
+<h1>Pages</h1>
+	<div class="file-menu">
+		<ul>
+			{{ range .Name }}
+			<li><a href="/edit/{{.}}">{{.}}</a></li>
+			{{end}}
+		</ul>
+	</div>
+{{template "footer" .}}
+{{end}}

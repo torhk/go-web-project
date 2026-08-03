@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210.21236mm"
+   height="221.45334mm"
+   viewBox="0 0 210.21236 221.45333"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="149.90665"
+       y="164.04877"
+       width="285.04629"
+       height="225.53971"
+       id="rect12" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(54.842247,124.97524)">
+    <ellipse
+       style="display:inline;fill:#289691;fill-opacity:1;stroke-width:0.820331"
+       id="path8"
+       cx="17.952803"
+       cy="-48.76321"
+       rx="120.72579"
+       ry="93.569855"
+       transform="matrix(0.60399328,0.79698941,-0.8105853,0.58562059,0,0)" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.44728543,0,0,0.47844669,-105.69434,-186.94347)"
+       id="text12"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect12);display:inline;fill:#f9f9f9;fill-opacity:1"><tspan
+         x="149.90625"
+         y="333.92383"
+         id="tspan1">KR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:94.3872px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:124.907;display:inline;fill:#f9f9f9;fill-opacity:1;stroke-width:0.491597"
+       x="15.065104"
+       y="55.525204"
+       id="text13"
+       transform="matrix(0.93226516,0,0,1.0726562,8.4549322,-1.0583333)"><tspan
+         x="15.065104"
+         y="55.525204"
+         id="tspan2">YX</tspan></text>
+  </g>
+</svg>

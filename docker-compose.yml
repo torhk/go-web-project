@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: go_dev_db
+    restart: always
+    networks:
+      - public_network
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/sql/test_data.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/sql/schema.sql:/docker-entrypoint-initdb.d/schema.txt
+      - go_pgdata:/var/lib/postgresql
+
+volumes:
+  go_pgdata:
+
+networks:
+  public_network:
+    driver: bridge
