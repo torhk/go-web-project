@@ -15,6 +15,7 @@ header {
 
 main {
 	flex: 1;               /* take up remaining space */
+	padding: 1rem;
 }
 
 footer {

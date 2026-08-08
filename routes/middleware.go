@@ -1,8 +1,9 @@
-package main
+package routes
 import (
 	"log"
 	"net/http"
 	"go_serv/db"
+	"go_serv/auth"
 )
 
 type Middleware func(http.HandlerFunc) http.HandlerFunc
@@ -34,7 +35,7 @@ func Auth(Pg_db *db.Queries) Middleware{
 				http.Error(w, "Unauthrorized: missing cookie",http.StatusUnauthorized)
 				return
 			}
-			if !verifyJWT(cookie.Value){
+			if !auth.VerifyJWT(cookie.Value){
 				//TODO: Redirect to login page?
 				http.Redirect(w, r, "/", http.StatusFound)
 				return

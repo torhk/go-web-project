@@ -1,4 +1,4 @@
-package main
+package auth
 import (
 	"time"
 	"os"
@@ -19,7 +19,7 @@ func getKey() []byte {
 	return secretKey 
 }
 
-func createJWT(user string) string {
+func CreateJWT(user string) string {
 	claims := jwt.RegisteredClaims{
 		Issuer:    	"go-web-app",
     	Audience: 	jwt.ClaimStrings{"billing-api"},
@@ -37,7 +37,7 @@ func createJWT(user string) string {
 	return tokenString
 }
 
-func verifyJWT(cookie string) bool {
+func VerifyJWT(cookie string) bool {
 	token, err := jwt.Parse(cookie, func(token *jwt.Token) (any, error) {
 		return getKey(), nil
 	}, jwt.WithValidMethods([]string{jwt.SigningMethodHS256.Alg()}))
