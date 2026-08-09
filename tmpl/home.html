@@ -2,11 +2,9 @@
 {{template "header" .}}
 <h1>Pages</h1>
 	<div class="file-menu">
-		<ul>
-			{{ range .Name }}
-			<li><a href="/view/{{.}}">{{.}}</a></li>
-			{{end}}
-		</ul>
+		{{ range .Name }}
+		<a href="/wiki/{{.}}/view">{{.}}</a>
+		{{end}}
 	</div>
 {{template "footer" .}}
 {{end}}

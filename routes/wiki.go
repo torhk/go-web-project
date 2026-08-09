@@ -27,7 +27,8 @@ func loadPage(title string) (*Page, error) {
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 	if err != nil {
-		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
+		//TODO: Create new wiki entry button instead
+		http.Redirect(w, r, "/wiki/"+title+"/edit", http.StatusFound)
 		return
 	}
 	renderTemplate(w, "view", p)
@@ -49,5 +50,5 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.Redirect(w, r, "/view/"+title, http.StatusFound)
+	http.Redirect(w, r, "/wiki/"+title+"/view", http.StatusFound)
 }

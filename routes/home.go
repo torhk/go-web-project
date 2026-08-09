@@ -34,8 +34,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(file.Name())
 		files.Name = append(files.Name, strings.TrimSuffix(file.Name(), ".txt"))
 	}
-//	http.Redirect(w, r, "/view/FrontPage", http.StatusFound)	
-	//files := []string{"apple", "banana", "cherry"}
+
 	err = templates.ExecuteTemplate(w, "home.html", files)
 	if err != nil {
 		fmt.Println("homeHandler: nil")

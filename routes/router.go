@@ -3,7 +3,6 @@ package routes
 import (
 	"net/http"
 	"regexp"
-	"fmt"
 	"html/template"
 )
 
@@ -22,24 +21,25 @@ func AddRoutes(user_db *Servers) *http.ServeMux {
 	mux.HandleFunc("POST /login", openPageMiddleware(user_db.loginPostHandler))
 	
 	
-	mux.HandleFunc("GET /view/", applyMiddleware(makeHandler(viewHandler)))
-	mux.HandleFunc("GET /edit/", applyMiddleware(makeHandler(editHandler)))
-	mux.HandleFunc("POST /save/", applyMiddleware(makeHandler(saveHandler)))
+	mux.HandleFunc("GET /wiki/{entry}/view", applyMiddleware(makeHandler(viewHandler)))
+	mux.HandleFunc("GET /wiki/{entry}/edit", applyMiddleware(makeHandler(editHandler)))
+	mux.HandleFunc("POST /wiki/{entry}/save", applyMiddleware(makeHandler(saveHandler)))
 
 	return mux
 }
 
-var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
+var validPath = regexp.MustCompile("^[a-zA-Z0-9]+$")
 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		m := validPath.FindStringSubmatch(r.URL.Path)
-		if m == nil {
+		// 
+		title := r.PathValue("entry")
+		
+		if !validPath.MatchString(title){
 			http.NotFound(w, r)
 			return
 		}
-		fmt.Println("makeHandler")
-		fn(w, r, m[2])
+		fn(w, r, title)
 	}
 }
 
