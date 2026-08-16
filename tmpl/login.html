@@ -2,15 +2,11 @@
 {{template "header" .}}
 <h1>Login</h1>
 <form action="/login" method="POST">
-	<div>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-    </div>
-    <div>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-    </div>
-    <button type="submit">Login</button>
+    <fieldset role="group">
+        <input name="uname" type="text" placeholder="Username" autocomplete="username" />
+        <input name="psw" type="password" placeholder="Password" />
+        <input type="submit" value="Log in" />
+    </fieldset>
 </form>
 {{template "footer" .}}
 {{end}}

@@ -1,24 +1,41 @@
 {{define "header"}}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		  <meta charset="UTF-8">
-		  <title>{{.Title}}</title>
-		  <link rel="stylesheet" href="/static/styles.css">
-	</head>
-	<body>
-		<header>
-			<nav class="navbar">
-				<div class="logo">
-					<a href="/">
-						<img src="/static/bitmap.svg" alt="My Site">
-					</a>
-				</div>
-				<ul class="nav-links">
-					<li><a href="/about">About</a></li>
-					<li><a href="/login">Login</a></li>
-				</ul>
-			</nav>
-		</header>
-		<main>
-{{end}}
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{.Title}}</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+	<link rel="stylesheet" href="/static/custom.css">
+</head>
+
+<body>
+	<header class="container-fluid">
+		<nav>
+			<div class="logo">
+				<a href="/">
+					<img src="/static/bitmap.svg" alt="My Site">
+				</a>
+			</div>
+			<ul>
+				<li><a href="/about" class="secondary">About</a></li>
+				<li><a href="/login" class="primary">Login</a></li>
+				<li>
+					<details class="dropdown compact-dropdown">
+						<summary>
+							Account
+						</summary>
+						<ul dir="rtl">
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Settings</a></li>
+							<li><a href="#">Security</a></li>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container-fluid">
+		{{end}}

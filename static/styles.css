@@ -1,3 +1,19 @@
+:root {
+  	/* Palette Colors */
+  	--color-main: #0f172a;          /* Deep Slate Background */
+  	--color-secondary: #64748b;     /* Cool Gray Text/Borders */
+  	--color-accent: #2563eb;        /* Royal Blue Interactive Components */
+  	--color-accent-hover: #1d4ed8;  /* Darker Blue Interaction States */
+  
+  	/* Layout Constants */
+  	--card-bg: #1e293b;             /* Slightly lighter slate for card depth */
+  	--text-primary: #f8fafc;        /* Off-white for crisp readability */
+  	--radius-button: 12px;          /* Defined curve for square buttons */
+  	--radius-card: 16px;            /* Softer curve for large containers */
+
+}
+
+
 body, html {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -8,8 +24,8 @@ body, html {
 }
 
 header {
-	background: #333;
-	color: white;
+	background: var(--color-main);
+	color: var(--text-primary);
 	padding: 1rem;
 }
 
@@ -19,7 +35,7 @@ main {
 }
 
 footer {
-	background: #eee;
+	background: var(--color-secondary);
 	text-align: center;
 	padding: 1rem;
 }
@@ -28,7 +44,7 @@ footer {
 	width: 10%;
 	margin: 0;
 	padding: 0;
-	background-color: #333;
+	background-color: var(--color-main);
 	display: flex;
     flex-direction: column; /* Stacks links vertically */
     gap: 15px;         
@@ -37,7 +53,7 @@ footer {
 
 .file-menu a {
 	display: block;
-	color: whitesmoke;
+	color: var(--text-primary);
 	text-align: center;
 	padding: 5% 5% 5% 5%;
 	text-decoration: none;
@@ -55,8 +71,8 @@ footer {
   justify-content: space-between; /* Logo on left, links on right */
   align-items: center;
   padding: 0rem 2rem;
-  background-color: #333;
-  color: white;
+  background-color: var(--color-main);
+  color: var(--text-primary);
 }
 
 .logo img {
@@ -78,7 +94,7 @@ footer {
 
 .nav-links a {
   text-decoration: none; /* Remove underline */
-  color: white;
+  color: var(--text-primary);
   transition: color 0.3s;
 }
 
@@ -86,3 +102,24 @@ footer {
 .nav-links a:hover {
   color: #ff9800;
 }
+
+.square-rounded-button {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-button);
+  background-color: var(--color-accent);
+  color: var(--text-primary);
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.square-rounded-button:hover {
+  background-color: var(--color-accent-hover);
+}
+

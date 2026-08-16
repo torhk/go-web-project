@@ -1,0 +1,28 @@
+.logo img {
+	height: 5rem;
+	width: auto;
+	display: block;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Pushes the footer down by claiming remaining space */
+}
+header.container-fluid {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensures the navbar floats on top of images/content */
+  background-color: var(--pico-background-color); /* Matches Pico's current theme color */
+  border-bottom: 1px solid var(--pico-muted-border-color); /* Optional: clear visual separator */
+}
+.compact-dropdown ul {
+  width: max-content;   /* Shrinks width to fit text length */
+  min-width: 15rem;     /* Prevents it from becoming too narrow */
+  max-width: 20rem;     /* Prevents it from becoming too wide */
+  right: 0;        
+}
