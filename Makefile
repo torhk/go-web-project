@@ -17,7 +17,7 @@ endif
 		echo "Generating HMAC key"; \
 		sed -i "s|^\(HMAC_KEY=\).*|\1$$(openssl rand -base64 32)|" .env; \
 		echo "Generating Postgress password"; \
-		sed -i "s|^\(DB_PASS=\).*|\1$$(openssl rand -base64 24)|" .env; \
+		sed -i "s|^\(DB_PASS=\).*|\1$$(openssl rand -base64 24 | tr '+/' '-_' | tr -d "=")|" .env; \
 	else \
 		echo "WARNING: .env.example was updated! Review .env for missing keys."; \
 		touch .env; \
