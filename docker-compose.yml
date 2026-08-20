@@ -6,9 +6,9 @@ services:
     networks:
       - public_network
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASS}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER:-go_db_user}
+      POSTGRES_PASSWORD: ${DB_PASS:-go_db_pass}
+      POSTGRES_DB: ${DB_NAME:-go_db}
     ports:
       - "5432:5432"
     volumes:

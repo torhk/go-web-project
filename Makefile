@@ -9,6 +9,31 @@ endif
 
 .PHONY: run sqlc build tidy help docker-up docker-down
 
+# .env depends on .env.example
+.env: example.env
+	@if [ ! -f .env ]; then \
+		echo "Creating .env from template..."; \
+		cp example.env .env; \
+		echo "Generating HMAC key"; \
+		sed -i "s|^\(HMAC_KEY=\).*|\1$$(openssl rand -base64 32)|" .env; \
+		echo "Generating Postgress password"; \
+		sed -i "s|^\(DB_PASS=\).*|\1$$(openssl rand -base64 24)|" .env; \
+	else \
+		echo "WARNING: .env.example was updated! Review .env for missing keys."; \
+		touch .env; \
+	fi
+
+tools/sqlc:
+	@echo "📥 Downloading Sqlc ..."
+	@curl --create-dirs -L -o tools/sqlc.zip https://downloads.sqlc.dev/sqlc_1.30.0_linux_amd64.zip
+	@echo "💾 Installing Sqlc in tools/ folder"
+	@unzip -qo tools/sqlc.zip -d tools/
+	@rm tools/sqlc.zip
+
+## dev-install: fetches and installs Sqlc in loacal folder. and generate .env and HMAC
+dev-install: tools/sqlc .env
+	@echo "🛠️  Finished settingup dev environment"
+
 ## docker-up: Start the local PostgreSQL container in the background
 docker-up:
 	@echo "🐘 Starting PostgreSQL container..."
@@ -26,7 +51,7 @@ docker-down:
 
 ## run: Load env vars and start the Go application
 ## run: Ensure docker container is running, generate code, and start Go application
-run: sqlc tidy
+run: sqlc tidy docker-up
 	@echo "🚀 Starting Go application..."
 	@go run .
 	#docker-up <- add to target later
@@ -34,7 +59,7 @@ run: sqlc tidy
 ## sqlc: Run sqlc code generation
 sqlc:
 	@echo "⚡ Generating sqlc code..."
-	@../tools/sqlc generate
+	@tools/sqlc generate
 
 ## build: Compile the binary
 build: sqlc tidy
