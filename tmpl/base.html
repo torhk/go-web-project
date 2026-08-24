@@ -1,11 +1,11 @@
-{{define "header"}}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{.Title}}</title>
+	<title>{{template "title" .}}</title>
+	<meta name="color-scheme" content="light dark">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 	<link rel="stylesheet" href="/static/custom.css">
 </head>
@@ -38,4 +38,15 @@
 		</nav>
 	</header>
 	<main class="container-fluid">
+		{{block "content" .}}
+			<p>Content missing</p>
 		{{end}}
+	</main>
+	<footer class="container-fluid">
+		<small>
+			&copy; 2026 My Website • <a href="#">About</a> • <a href="#">placeholder</a>
+		</small>
+	</footer>
+</body>
+
+</html>
