@@ -1,10 +1,9 @@
-{{define "home.html"}}
-{{template "header" .}}
+{{define "title"}}Site - {{.Title}}{{end}}
+{{define "content"}}
 <h1>Pages</h1>
 	<div class="file-menu">
 		{{ range .Name }}
 		<a href="/wiki/{{.}}/view">{{.}}</a>
 		{{end}}
 	</div>
-{{template "footer" .}}
 {{end}}

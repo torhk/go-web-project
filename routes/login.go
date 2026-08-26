@@ -13,10 +13,8 @@ type Servers struct {
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	p := &Page{Title: "Login", Body: nil}
-	err := templates.ExecuteTemplate(w, "login.html", p)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	renderTemplate(w, "login", p)
+	// TODO: Redirect if alredy authenticated.
 }
 
 

@@ -1,7 +1,6 @@
-{{define "view.html"}}
-{{template "header" .}}
+{{define "title"}}Site - {{.Title}}{{end}}
+{{define "content"}}
 <h1>{{.Title}}</h1>
 <p>[<a href="/wiki/{{.Title}}/edit">edit</a>]</p>
 <div>{{printf "%s" .Body}}</div>
-{{template "footer" .}}
 {{end}}

@@ -1,5 +1,5 @@
-{{define "login.html"}}
-{{template "header" .}}
+{{define "title"}}Site - {{.Title}}{{end}}
+{{define "content"}}
 <h1>Login</h1>
 <form action="/login" method="POST">
     <fieldset role="group">
@@ -8,5 +8,4 @@
         <input type="submit" value="Log in" />
     </fieldset>
 </form>
-{{template "footer" .}}
 {{end}}
