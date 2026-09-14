@@ -44,6 +44,7 @@ func AddRoutes(user_db *Servers) *http.ServeMux {
 	mux.HandleFunc("GET /{$}", openPageMiddleware(homeHandler))
 	mux.HandleFunc("GET /login", openPageMiddleware(loginHandler))
 	mux.HandleFunc("POST /login", openPageMiddleware(user_db.loginPostHandler))
+	mux.HandleFunc("GET /logout", openPageMiddleware(logoutHandler))
 	
 
 	mux.HandleFunc("GET /wiki/{entry}/view", applyMiddleware(makeHandler(viewHandler)))

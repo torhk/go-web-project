@@ -2,6 +2,7 @@ package routes
 
 import (
 	"log"
+	"time"
 	"net/http"
 	"go_serv/db"
 	"go_serv/auth"
@@ -17,6 +18,19 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	// TODO: Redirect if alredy authenticated.
 }
 
+func logoutHandler(w http.ResponseWriter, r *http.Request) {
+	cookie := &http.Cookie{
+		Name:     "user_token", // Must match the original cookie name
+		Value:    "",              // Clear the value
+		Path:     "/",             // Must match the original path
+		MaxAge:   -1,              // Tells the browser to delete the cookie immediately
+		Expires:  time.Unix(0, 0), // A date in the past (Jan 1, 1970) for older browsers
+		HttpOnly: true,            // Security best practice
+		Secure:   true,            // Secure flag (if using HTTPS)
+	}
+	http.SetCookie(w, cookie)
+	http.Redirect(w, r, "/login", http.StatusSeeOther)
+}
 
 func (s *Servers) loginPostHandler(w http.ResponseWriter, r *http.Request) {
 	//TODO: Check for existing login token
