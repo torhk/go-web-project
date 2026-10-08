@@ -25,7 +25,7 @@ endif
 
 tools/sqlc:
 	@echo "📥 Downloading Sqlc ..."
-	@curl --create-dirs -L -o tools/sqlc.zip https://downloads.sqlc.dev/sqlc_1.30.0_linux_amd64.zip
+	@curl --create-dirs -L -o tools/sqlc.zip https://downloads.sqlc.dev/sqlc_1.31.1_linux_amd64.zip
 	@echo "💾 Installing Sqlc in tools/ folder"
 	@unzip -qo tools/sqlc.zip -d tools/
 	@rm tools/sqlc.zip
